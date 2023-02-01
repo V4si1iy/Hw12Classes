@@ -41,4 +41,18 @@ public class Books {
         info += "\n Год написания: " + year;
         return info;
     }
+    @Override
+    public int hashCode() {
+        return name.hashCode() + author.hashCode() + year;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj instanceof Books) {
+            Books bookObj = (Books) obj;
+            return name.equals(bookObj.getName()) && author.equals(bookObj.getAuthor()) && year == bookObj.getYear();
+        }
+        return false;
+    }
 }

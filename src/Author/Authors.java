@@ -26,4 +26,19 @@ public class Authors {
         return info;
     }
 
+    @Override
+    public int hashCode() {
+        return name.hashCode() + surname.hashCode();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj instanceof Authors) {
+            Authors authorObj = (Authors) obj;
+            return name.equals(authorObj.getName()) && surname.equals(authorObj.getSurname());
+        }
+        return false;
+    }
+
 }
